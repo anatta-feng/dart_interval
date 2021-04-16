@@ -18,7 +18,7 @@ dart pub add dart_interval
 
 ```yaml
 dependencies:
-  dart_interval: ^0.1.0
+  dart_interval: ^0.1.1
 ```
 
 ## 特性

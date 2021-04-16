@@ -190,7 +190,7 @@ abstract class BaseIntervalSet {
   String toString() {
     var rangeStr = "";
 
-    if (this._intervals.length == 0) {
+    if (this._intervals.isEmpty) {
       rangeStr = "<Empty>";
     } else {
       rangeStr = this._intervals.join(",");
