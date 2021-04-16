@@ -1,0 +1,8 @@
+language: dart
+dart:
+  # Install a specific stable release - 1.15.0
+  - "2.12.2"
+script:
+  - pub run test --coverage coverage
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
