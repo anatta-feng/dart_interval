@@ -1,3 +1,7 @@
+## 0.1.2
+
+Add operate for IntervalSet.
+
 ## 0.1.1
 
 Fix the static analysis issues.

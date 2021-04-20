@@ -1,3 +1,5 @@
+import 'dart:math';
+
 class Interval implements Comparable {
   final int lowerBound;
   final int upperBound;
@@ -15,7 +17,7 @@ class Interval implements Comparable {
 
   @override
   String toString() {
-    return "[$lowerBound, $upperBound]";
+    return "${lowerClosed ? '[' : '('}$lowerBound, $upperBound${upperClosed ? ']' : ')'}";
   }
 
   bool comes_before(Interval other) {
@@ -184,7 +186,7 @@ abstract class BaseIntervalSet {
     this._intervals.sort();
   }
 
-  int length() => _intervals.length;
+  int get length => _intervals.length;
 
   @override
   String toString() {
@@ -212,6 +214,41 @@ abstract class BaseIntervalSet {
     this._intervals = newIntervals;
     this._intervals.sort();
   }
+
+  List<Interval> operator +(List<Interval> other) {
+    for (var value in other) {
+      _add(value);
+    }
+    return this._intervals;
+  }
+
+  Interval operator [](int index) {
+    return this._intervals[index];
+  }
+
+  void add(Interval value) {
+    this._add(value);
+  }
+
+  void addAll(Iterable<Interval> iterable) {
+    for (var value in iterable) {
+      this._add(value);
+    }
+  }
+
+  Interval elementAt(int index) {
+    return this._intervals.elementAt(index);
+  }
+
+  void forEach(void Function(Interval element) f) {
+    this._intervals.forEach(f);
+  }
+
+  bool get isEmpty => this._intervals.isEmpty;
+
+  bool get isNotEmpty => this._intervals.isNotEmpty;
+
+  Iterator<Interval> get iterator => this._intervals.iterator;
 }
 
 class IntervalSet extends BaseIntervalSet {
