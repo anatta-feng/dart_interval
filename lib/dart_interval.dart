@@ -81,7 +81,7 @@ class Interval implements Comparable {
         result = Interval.none();
       }
     } else {
-      result = this & other;
+      result = other & this;
     }
     return result;
   }

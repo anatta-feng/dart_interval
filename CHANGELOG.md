@@ -1,3 +1,7 @@
+## 0.1.3
+
+Fix the calculation error when the current interval is behind the back in number.
+
 ## 0.1.2
 
 Add operate for IntervalSet.
